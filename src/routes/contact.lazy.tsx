@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createLazyFileRoute } from "@tanstack/react-router";
 import {
   RxEnvelopeOpen,
   RxLinkedinLogo,
@@ -8,7 +9,7 @@ import {
 } from "react-icons/rx";
 import { db } from "../lib/firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import Input from "../components/static/Input";
 
 type BadgeType = {
@@ -53,6 +54,11 @@ const Badge = ({ text, icon, link } : BadgeType) => {
     </Link>
   );
 };
+
+
+export const Route = createLazyFileRoute('/contact')({
+  component: Contact,
+})
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);

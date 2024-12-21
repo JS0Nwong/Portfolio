@@ -7,7 +7,7 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: ["Inter", "sans-serif"],
-			geist: ["Geist", "sans-serif"]
+  			geist: ["Geist", "sans-serif"]
   		},
   		animation: {
   			darkColorBefore: 'darkColorBefore 1s ease 0s 1 normal forwards running ',

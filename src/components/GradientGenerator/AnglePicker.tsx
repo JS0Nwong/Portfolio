@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 
 export default function AnglePicker({defaultValue, onAngleChange} : {defaultValue: number, onAngleChange: (value: number) => void}) {
   const svgRef = useRef<SVGSVGElement>(null)

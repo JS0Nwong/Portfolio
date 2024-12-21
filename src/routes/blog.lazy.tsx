@@ -1,6 +1,11 @@
-import BlogListItem from "../components/BlogPosts/BlogListItem";
+import BlogListItem from '../components/BlogPosts/BlogListItem'
+import { createLazyFileRoute } from '@tanstack/react-router'
 
-export default function Blog() {
+export const Route = createLazyFileRoute('/blog')({
+  component: Blog,
+})
+
+function Blog() {
   return (
     <div className="pt-12 md:pt-16 flex flex-col font-geist">
       <div className="flex flex-col">
@@ -19,5 +24,5 @@ export default function Blog() {
                 ))} */}
       </div>
     </div>
-  );
+  )
 }

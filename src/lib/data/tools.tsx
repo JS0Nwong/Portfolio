@@ -1,10 +1,11 @@
-import {
-  RxShadow,
-  RxColorWheel,
-  RxKeyboard,
-} from "react-icons/rx";
+import { RxShadow, RxColorWheel, RxKeyboard } from "react-icons/rx";
 
-export const tools: { title: string; href: string; icon: JSX.Element, description?: string }[] = [
+export const tools: {
+  title: string;
+  href: string;
+  icon: JSX.Element;
+  description?: string;
+}[] = [
   {
     title: "Gradiant Generator",
     href: "/tools/gradient-generator",

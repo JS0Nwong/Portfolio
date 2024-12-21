@@ -6,8 +6,9 @@ import {
   BiLogoTailwindCss,
   BiLogoReact,
 } from "react-icons/bi";
-
 import Badge from "../components/static/Badge";
+import { createLazyFileRoute } from "@tanstack/react-router";
+
 const randomWord = [
   "classy",
   "excellent",
@@ -24,7 +25,11 @@ const randomWord = [
 
 const locale = window.navigator.language || window.navigator.languages[0];
 
-export default function Home() {
+export const Route = createLazyFileRoute('/')({
+  component: Home,
+})
+
+function Home() {
   return (
     <RoughNotationGroup show={true}>
       <div className="flex flex-col z-10 font-geist">

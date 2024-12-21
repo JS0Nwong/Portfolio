@@ -4,7 +4,6 @@ import {
   RxRocket,
   RxPencil1,
   RxEnvelopeClosed,
-
 } from "react-icons/rx";
 
 export const paths = [

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { RxHobbyKnife, RxChevronDown } from "react-icons/rx";
 
 import {
@@ -11,10 +11,14 @@ import {
 import { tools, paths } from "@/lib/data/index";
 import { useSidebar } from "@/context/SidebarContext";
 import { useTheme } from "@/context/ThemeContext";
-import { BackgroundGradientAnimation } from "./static/BackgroundGradient";
+import { BackgroundGradientAnimation } from "@/components/static/BackgroundGradient"
+import { useLocation } from '@tanstack/react-router'
+
 
 export default function AppSidebar() {
-  const location = useLocation();
+  const pathname = useLocation({
+    select: (location) => location.pathname,
+  })
   const { theme } = useTheme();
   const { open, isMobile, toggleSidebar } = useSidebar();
   const [isOpen, setIsOpen] = useState(true);
@@ -51,7 +55,7 @@ export default function AppSidebar() {
                   >
                     {icon} {name}
                   </Link>
-                  {location.pathname === path && (
+                  {pathname === path && (
                     <motion.div
                       layoutId="dot"
                       className="h-1 bg-[#5f58ff] rounded-sm w-1"

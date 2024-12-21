@@ -1,15 +1,18 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from '@tanstack/react-router'
 import { RxMoon, RxSun, RxHamburgerMenu, RxVercelLogo } from "react-icons/rx";
 import { useTheme } from "../context/ThemeContext";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavDropdown } from "./NavDropdown";
 import { useSidebar } from "../context/SidebarContext";
 import { paths } from "@/lib/data/index";
+import { useLocation } from '@tanstack/react-router';
 
 export default function Menubar() {
   const { theme, toggleTheme } = useTheme();
   const { toggleSidebar } = useSidebar();
-  const location = useLocation();
+  const pathname = useLocation({
+    select: (location) => location.pathname,
+  })
 
   return (
     <AnimatePresence>
@@ -26,8 +29,13 @@ export default function Menubar() {
               key={name}
               className="first:mr-2 first:ml-0 mx-2 relative inline-block"
             >
-              <Link to={path} className={ "text-neutral-800 dark:text-neutral-200"}>{name}</Link>
-              {location.pathname === path && (
+              <Link
+                to={path}
+                className={"text-neutral-800 dark:text-neutral-200"}
+              >
+                {name}
+              </Link>
+              {pathname === path && (
                 <motion.div
                   layoutId="underline"
                   className="absolute left-0 -bottom-0.5 w-full h-0.5 bg-[#5f58ff] rounded-sm"
@@ -61,7 +69,7 @@ export default function Menubar() {
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
           >
-            {theme === 'dark' ? <RxSun /> : <RxMoon />}
+            {theme === "dark" ? <RxSun /> : <RxMoon />}
           </button>
         </div>
       </nav>

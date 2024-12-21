@@ -3,6 +3,11 @@ import { useAuth } from "../context/AuthContext";
 import { db } from "../lib/firebase";
 import { getDoc, setDoc, arrayUnion, doc } from "firebase/firestore";
 import GuestbookLists from "../components/GuestbookLists";
+import { createLazyFileRoute } from "@tanstack/react-router";
+
+export const Route = createLazyFileRoute('/guestbook')({
+  component: Guestbook,
+})
 
 export default function Guestbook() {
   const { user, signIn, messages } = useAuth();

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { AnimatePresence } from "framer-motion"
 import { data } from '../lib/data/projects'
 import ProjectListItem from "../components/ProjectListItem"
+import { createLazyFileRoute } from "@tanstack/react-router"
 
 const defaultAnimations = {
     initial: {
@@ -12,6 +13,10 @@ const defaultAnimations = {
         opacity: 1,
     }
 }
+
+export const Route = createLazyFileRoute('/craft')({
+    component: Craft,
+})
 
 export default function Craft() {
     const [focus, setFocus] = useState(Infinity)
