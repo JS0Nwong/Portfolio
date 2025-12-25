@@ -168,9 +168,9 @@ export default function ColorPalette({
                 >
                   <CollapsibleTrigger asChild>
                     <div className="flex items-center justify-between w-full group cursor-pointer">
-                      <div className="flex flex-row gap-2 items-center ">
+                      <div className="flex flex-row gap-2 items-center relative z-[2]">
                         <div
-                          className="size-6 rounded"
+                          className={`size-6 rounded transition-transform  group-hover:after:content-[''] group-hover:after:rounded group-hover:after:size-6 group-hover:after:bg-inherit group-hover:after:absolute group-hover:after:scale-125 group-hover:after:opacity-40 group-hover:after:-z-10`}
                           style={{ backgroundColor: color.color }}
                         />
                         <span className="font-semibold text-xs select-none">

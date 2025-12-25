@@ -129,6 +129,7 @@ export default function Draggable({
             >
               <Button
                 variant="ghost"
+                disabled={props.isDisabled}
                 className={`h-8 w-8 flex ${isHidden ? "bg-zinc-200/70 dark:bg-accent" : ""}`}
                 onClick={() => hideColor(props.index)}
               >

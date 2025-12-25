@@ -343,13 +343,13 @@ export default function Toolbar(props: ToolbarProps) {
         {/* INTERPOLATION DISTANCE */}
         {props.data.gradientType !== "mesh" && (
           <div className="flex flex-row gap-2 p-3 items-center justify-between border-b ">
-            <Label className="text-xs font-semibold text-neutral-600 dark:text-neutral-400 flex items-center gap-2 text-nowrap">
+            <Label className="text-xs font-semibold  flex items-center gap-2 text-nowrap">
               <Ruler
                 size={16}
                 strokeWidth={2.25}
                 className=" text-neutral-400 dark:text-neutral-500"
               />{" "}
-              <span>Interpolation Distance</span>
+              <span className="text-neutral-600 dark:text-neutral-400">Interpolation Distance</span>
               <ToolTip
                 showInfoIcon={true}
                 tooltipText="Determines which direction around the color wheel the gradient should go."
@@ -435,13 +435,13 @@ export default function Toolbar(props: ToolbarProps) {
           props.data.gradientType === "conic") && (
           <div className="flex justify-between p-3 items-center border-b ">
             <div className="flex flex-row gap-4 w-full items-center">
-              <Label className="text-xs font-semibold text-neutral-800 dark:text-neutral-400 flex gap-2">
+              <Label className="text-xs font-semibold  flex gap-2">
                 <DraftingCompass
                   size={16}
                   strokeWidth={2.25}
-                  className=" text-neutral-600 dark:text-neutral-500 -rotate-90"
+                  className=" text-neutral-400 dark:text-neutral-500 -rotate-90"
                 />{" "}
-                <span>Angle</span>
+                <span className="text-neutral-600 dark:text-neutral-400">Angle</span>
               </Label>
               <Slider
                 value={[props.data.angle]}
@@ -475,11 +475,11 @@ export default function Toolbar(props: ToolbarProps) {
         {props.data.gradientType !== "mesh" && (
           <div className="flex justify-between gap-2 p-3 items-center border-b ">
             <div className="flex flex-row justify-between w-full items-center">
-              <Label className="text-xs font-semibold text-neutral-800 dark:text-neutral-400 flex gap-2">
+              <Label className="text-xs font-semibold text-neutral-600 dark:text-neutral-400 flex gap-2">
                 <Spline
                   size={16}
                   strokeWidth={2.25}
-                  className=" text-neutral-600 dark:text-neutral-500"
+                  className=" text-neutral-400 dark:text-neutral-500"
                 />{" "}
                 <span>Easing Curve</span>
               </Label>
@@ -518,11 +518,11 @@ export default function Toolbar(props: ToolbarProps) {
 
         {/* GRAIN SLIDER*/}
         <div className="flex flex-row gap-4 p-3 items-center">
-          <Label className="text-xs font-semibold text-neutral-800 dark:text-neutral-400  flex items-center gap-2 text-nowrap">
+          <Label className="text-xs font-semibold text-neutral-600 dark:text-neutral-400 flex items-center gap-2 text-nowrap">
             <Sparkles
               size={16}
               strokeWidth={2.25}
-              className=" text-neutral-600 dark:text-neutral-500"
+              className=" text-neutral-400 dark:text-neutral-500"
             />{" "}
             <span>Noise</span>
           </Label>
@@ -592,7 +592,7 @@ export default function Toolbar(props: ToolbarProps) {
                 />
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[725px] h-full md:h-auto md:max-w-[1295px]">
+            <DialogContent className="h-full md:h-auto md:max-w-[1295px]">
               <DialogHeader>
                 <DialogTitle>Export Gradient</DialogTitle>
                 <DialogDescription>

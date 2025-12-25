@@ -26,6 +26,7 @@ import SavedGradients from "@/components/GradientGenerator/SavedGradients";
 import { Button } from "@/components/ui/button";
 import useClickAway from "@/hooks/use-clickaway";
 import useColor from "@/hooks/use-color";
+import useKeypress from "@/hooks/use-keypress";
 import { Color } from "@/lib/types";
 import AnimatedMeshGradient from "@/components/GradientGenerator/AnimatedMeshGradient";
 import { createLazyFileRoute } from "@tanstack/react-router";
@@ -140,7 +141,12 @@ function GradientGenerator() {
     });
   };
 
+  useKeypress(" ", generateRandomGradient);
+
   const gradientStyle = useMemo(() => {
+    if (schema.colors.filter((color: Color) => !color.isHidden).length === 0)
+      return;
+    if (schema.isAnimated) return;
     const svgUrl = `data:image/svg+xml,%3C!-- svg: first layer --%3E%3Csvg viewBox='0 0 ${schema.grain} ${schema.grain}' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E`;
     return {
       height: `${size}%`,
@@ -200,7 +206,7 @@ function GradientGenerator() {
               {schema.gradientType === "mesh" && schema.isAnimated && (
                 <AnimatedMeshGradient
                   schema={schema}
-                  className="absolute inset-0"
+                  className="absolute inset-0 rounded-lg"
                 />
               )}
               {schema.gradientType === "mesh" &&
@@ -307,8 +313,8 @@ const DraggablePoint: React.FC<DraggablePointProps> = ({
     position: "absolute",
     left: `${color.pos?.x}%`,
     top: `${color.pos?.y}%`,
-    width: "25px",
-    height: "25px",
+    width: "23px",
+    height: "23px",
     border: "1px solid #dfdfdf",
     borderRadius: "50%",
     boxShadow:

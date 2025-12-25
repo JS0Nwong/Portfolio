@@ -33,7 +33,7 @@ export const ColorInput = React.memo(
       <div className="h-full group custom-layout ">
         <HslaStringColorPicker
           color={chroma(color).css("hsla")}
-          onChange={handleColorChange}
+          onChange={handleChange}
         />
         <div className="flex flex-col items-center gap-2">
           <div className="flex items-center w-full gap-4">

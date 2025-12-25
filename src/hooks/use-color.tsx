@@ -61,7 +61,7 @@ export default function useColor() {
     canRedo: boolean;
   };
     
-  const handleColorChange = (index: number, value: string) => {
+  const handleColorChange = (index: number | undefined, value: string) => {
     setSchema({
       ...schema,
       colors: schema.colors.map((color: Color, i: number) =>
@@ -182,14 +182,16 @@ export default function useColor() {
   const setMeshBackground = (value: string) => {
     setSchema({
       ...schema,
-      bgColor: chroma(value).css('hsl'),
+      bgColor: value,
     });
   }
 
   const toggleAnimation = () => {
     setSchema({
       ...schema,
-      isAnimated: !schema.isAnimated
+      isAnimated: !schema.isAnimated,
+      animationDuration: 2,
+      animationDirection: "normal",
   })}
 
   return {
